@@ -17,10 +17,9 @@ Once you have configured zander in your project, here is the next step.
 ```javascript
 "use strict";
 var zander = require('zander');
-var config_loader = require('zander/config/config-loader');
 var path = require('path');
-var configLoader = new config_loader.SimpleFilePathMatchLoader(["modules_dir/module.json"]);
-var depManager = zander.default({ configLoader: configLoader, modulePath: path.join(__dirname, 'modules') });
+var configLoader = new zander.SimpleFilePathMatchLoader(["modules/module.json"]);
+var depManager = zander.DependencyInjection({ configLoader: configLoader, modulePath: path.join(__dirname, 'modules') });
 depManager.configure();
 ```
 
