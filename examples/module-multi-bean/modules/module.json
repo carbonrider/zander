@@ -1,0 +1,18 @@
+{
+    "order": {
+    },
+    "contact": {
+        "construct": [
+            "cloudContactRepo"
+        ]
+    },
+    "customer": {
+        "construct": [
+            "contact",
+            "order"
+        ]
+    },
+    "cloudContactRepo": {
+        "path": "contact/repo"
+    }
+}

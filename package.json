@@ -1,0 +1,32 @@
+{
+  "name": "node-di",
+  "version": "0.0.1",
+  "private": true,
+  "description": "New Swagger API Project",
+  "keywords": [],
+  "author": "",
+  "license": "",
+  "main": "build/app.js",
+  "dependencies": {
+    "bluebird": "^3.3.5",
+    "express": "^4.12.3",
+    "glob": "^7.0.3",
+    "swagger-express-mw": "^0.1.0"
+  },
+  "devDependencies": {
+    "del": "^2.2.0",
+    "gulp": "^3.9.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-typescript": "^2.13.3",
+    "jasmine-core": "^2.4.1",
+    "jasmine-node": "^1.14.5",
+    "run-sequence": "^1.1.5",
+    "should": "^7.1.0",
+    "supertest": "^1.0.0",
+    "typescript": "^1.8.10"
+  },
+  "scripts": {
+    "start": "node build/app.js",
+    "test": "swagger project test"
+  }
+}

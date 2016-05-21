@@ -1,0 +1,13 @@
+{
+    "order":{
+        
+    },
+    "contact": {
+    },
+    "customer": {
+        "construct": [
+            "contact",
+            "order"
+        ]
+    }
+}
