@@ -55,7 +55,3 @@ service beans in one file, while all business logic and data access bean definit
 
 Zander doesn't require to inherit nor make any references to the core framework in your beans. The current implementation
 supports injecting dependencies using constructors.
-=======
-# zander
-Dependency injection framework for Node.JS
->>>>>>> 2483e5e21e1de07ae283f14448bc01213b3f7b1f
