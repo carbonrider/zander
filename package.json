@@ -1,7 +1,7 @@
 {
   "name": "zander",
   "version": "0.0.1",
-  "private": true,
+  "private": false,
   "description": "Node.JS dependency injection framework",
   "keywords": ["Dependency injection", "Node.JS"],
   "author": "Yogesh C. Jadhav",
