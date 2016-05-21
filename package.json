@@ -1,17 +1,16 @@
 {
-  "name": "node-di",
+  "name": "zander",
   "version": "0.0.1",
   "private": true,
-  "description": "New Swagger API Project",
-  "keywords": [],
-  "author": "",
-  "license": "",
-  "main": "build/app.js",
+  "description": "Node.JS dependency injection framework",
+  "keywords": ["Dependency injection", "Node.JS"],
+  "author": "Yogesh C. Jadhav",
+  "homepage": "https://github.com/carbonrider/zander",
+  "license": "MIT",
+  "main": "examples/simple/index.js",
   "dependencies": {
     "bluebird": "^3.3.5",
-    "express": "^4.12.3",
-    "glob": "^7.0.3",
-    "swagger-express-mw": "^0.1.0"
+    "glob": "^7.0.3"
   },
   "devDependencies": {
     "del": "^2.2.0",
@@ -26,7 +25,17 @@
     "typescript": "^1.8.10"
   },
   "scripts": {
-    "start": "node build/app.js",
-    "test": "swagger project test"
-  }
+    "start": "node examples/simple/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carbonrider/zander.git"
+  },
+  "maintainers": [
+    {
+      "email": "yogesh.jadhav@gmail.com",
+      "name": "Yogesh C. Jadhav",
+      "url": "http://www.carbonrider.com"
+    }
+  ]
 }
