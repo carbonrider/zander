@@ -1,9 +1,12 @@
 {
   "name": "zander",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": false,
   "description": "Node.JS dependency injection framework",
-  "keywords": ["Dependency injection", "Node.JS"],
+  "keywords": [
+    "Dependency injection",
+    "Node.JS"
+  ],
   "author": "Yogesh C. Jadhav",
   "homepage": "https://github.com/carbonrider/zander",
   "license": "MIT",
