@@ -7,6 +7,8 @@ import {DependencyResolver} from './lib/zander/dependency/dependency-resolver';
 
 import Promise = require('bluebird');
 
+export * from './lib/zander/config/config-loader';
+
 export interface IDependencyManager {
     configure(): Promise<boolean>;
 
@@ -63,7 +65,7 @@ export class DependencyManager implements IDependencyManager {
     }
 }
 
-export default function DependencyInjection(options: IDependencyOptions): IDependencyManager {
+export function DependencyInjection(options: IDependencyOptions): IDependencyManager {
     return new DependencyManager(options);
 }
 

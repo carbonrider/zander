@@ -7,7 +7,7 @@
   "author": "Yogesh C. Jadhav",
   "homepage": "https://github.com/carbonrider/zander",
   "license": "MIT",
-  "main": "examples/simple/index.js",
+  "main": "build/index.js",
   "dependencies": {
     "bluebird": "^3.3.5",
     "glob": "^7.0.3"
