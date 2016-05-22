@@ -54,3 +54,5 @@ service beans in one file, while all business logic and data access bean definit
 
 Zander doesn't require to inherit nor make any references to the core framework in your beans. The current implementation
 supports injecting dependencies using constructors.
+
+Find a simple example at - [Zander-simple](https://github.com/carbonrider/zander-simple)
