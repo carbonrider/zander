@@ -2,8 +2,9 @@
 
 declare module 'zander' {
 
-    class SimpleFilePathMatchLoader {
+    class SimpleFilePathMatchLoader implements IConfigLoader {
         constructor(filePath: string[]);
+        loadConfig(): Promise<string[]>;
     }
 
     interface IConfigLoader {

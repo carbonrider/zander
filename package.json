@@ -27,6 +27,11 @@
     "supertest": "^1.0.0",
     "typescript": "^1.8.10"
   },
+  "files":[
+    "lib",
+    "typescript",
+    "typings.json"
+  ],
   "scripts": {
     "start": "node examples/simple/index.js"
   },
