@@ -2,6 +2,7 @@
   "name": "node-di",
   "version": false,
   "dependencies": {},
+  "global":true,
   "globalDependencies": {
     "bluebird": "registry:dt/bluebird#2.0.0+20160319051630",
     "glob": "registry:dt/glob#5.0.10+20160317120654",
