@@ -28,6 +28,7 @@
     "typescript": "^1.8.10"
   },
   "files": [
+    "build",
     "lib",
     "typescript",
     "typings.json"
