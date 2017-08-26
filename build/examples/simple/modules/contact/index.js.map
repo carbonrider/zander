@@ -1,1 +1,0 @@
-{"version":3,"sources":["examples/simple/modules/contact/index.ts"],"names":[],"mappings":";AAIA;IACI;QACI,OAAO,CAAC,GAAG,CAAC,6CAA6C,CAAC,CAAC;IAC/D,CAAC;IAED,gCAAc,GAAd;QACI,MAAM,CAAC,OAAO,CAAC;IACnB,CAAC;IAEL,cAAC;AAAD,CATA,AASC,IAAA;AAED,MAAM,CAAC,OAAO,GAAG,OAAO,CAAC","file":"index.js","sourceRoot":"../../../../../../../../.."}
