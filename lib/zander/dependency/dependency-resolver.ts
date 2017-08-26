@@ -1,10 +1,10 @@
 import path = require('path');
 
-import {IBeanRepository} from '../beans/bean-store';
-import {BeanModel} from '../beans/bean-model';
-import {IDependencyResolver} from '../dependency/dependency-resolver';
-import {SingletonScope} from '../scope/bean-scopes';
-import {IScope} from '../scope/bean-scopes';
+import { IBeanRepository } from '../beans/bean-store';
+import { BeanModel } from '../beans/bean-model';
+import { IDependencyResolver } from '../dependency/dependency-resolver';
+import { SingletonScope } from '../scope/bean-scopes';
+import { IScope } from '../scope/bean-scopes';
 
 import Promise = require('bluebird');
 
@@ -13,9 +13,9 @@ export interface IDependencyResolver {
 
     getBean(beanName: string): Promise<IScope>;
 
-    getModuleRoot(): string;
-
     getBeanInstance(beanName: string): any;
+
+    loadBean(bean: BeanModel): any;
 }
 
 
@@ -63,6 +63,8 @@ export class DependencyResolver implements IDependencyResolver {
                         }).catch((err) => {
                             reject(err);
                         });
+                } else {
+                    throw new Error('Bean [' + name + '] cannot be loaded with scope : ' + scope);
                 }
             }
 
@@ -70,12 +72,14 @@ export class DependencyResolver implements IDependencyResolver {
 
     }
 
-    public getBean(beanName: string): Promise<any> {
-        return this.resolveBean(beanName);
+    public loadBean(bean: BeanModel): any {
+        var beanPath: string = bean.path || bean.name;
+        var dynaBean = require(path.join(this.moduleRoot, beanPath));
+        return dynaBean;
     }
 
-    public getModuleRoot(): string {
-        return this.moduleRoot;
+    public getBean(beanName: string): Promise<any> {
+        return this.resolveBean(beanName);
     }
 
     public getBeanInstance(beanName: string): any {

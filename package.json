@@ -1,6 +1,6 @@
 {
   "name": "zander",
-  "version": "0.1.5",
+  "version": "0.2.0",
   "private": false,
   "description": "Node.JS dependency injection framework",
   "keywords": [
@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "del": "^2.2.0",
+    "eslint": "^4.5.0",
     "gulp": "^3.9.1",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-typescript": "^2.13.3",
@@ -34,7 +35,8 @@
     "typings.json"
   ],
   "scripts": {
-    "start": "node examples/simple/index.js"
+    "start": "node examples/simple/index.js",
+    "test": "./node_modules/.bin/jasmine-node build/tests"
   },
   "repository": {
     "type": "git",

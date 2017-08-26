@@ -1,7 +1,7 @@
-import {BeanModel} from '../beans/bean-model';
+import { BeanModel } from '../beans/bean-model';
 import path = require('path');
-import {IScope} from '../scope/bean-scopes';
-import {IDependencyResolver} from '../dependency/dependency-resolver';
+import { IScope } from '../scope/bean-scopes';
+import { IDependencyResolver } from '../dependency/dependency-resolver';
 
 import Promise = require('bluebird');
 
@@ -25,20 +25,13 @@ export class SingletonScope implements IScope {
 
     public configure(): Promise<boolean> {
 
-        return new Promise<boolean>((resolve, reject) => {
-            this.getConstructorBeans()
-                .then((constructorRefs) => {
-                    return this.resolveBean(constructorRefs);
-                }).then((res) => {
-                    this.notifyCallbacks();
-                    resolve(res);
-                })
-                .catch((err) => {
-                    reject(err);
-                });
-
-        });
-
+        return this.getConstructorBeans()
+            .then((constructorRefs) => {
+                return this.resolveBean(constructorRefs);
+            }).then((res) => {
+                this.notifyCallbacks();
+                return true;
+            });
     }
 
     private _cb: any[];
@@ -56,8 +49,6 @@ export class SingletonScope implements IScope {
 
     private getConstructorBeans(): Promise<any[]> {
         var constructorDepRefs: BeanModel[] = this.bean.constructorDependencies;
-
-
 
         return new Promise<any>((resolve, reject) => {
             if (!constructorDepRefs) {
@@ -86,9 +77,7 @@ export class SingletonScope implements IScope {
 
     private resolveBean(refs: any[]): Promise<boolean> {
         return new Promise<boolean>((resolve, reject) => {
-            var beanPath: string = this.bean.path || this.bean.name;
-            var moduleRootPath: string = this.beanResolver.getModuleRoot();
-            var dynaBean = require(path.join(moduleRootPath, beanPath));
+            var dynaBean = this.beanResolver.loadBean(this.bean);
             this._beanInstance = new (Function.prototype.bind.apply(dynaBean, refs));
             this._isResolved = true;
 

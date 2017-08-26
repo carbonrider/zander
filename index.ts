@@ -1,9 +1,9 @@
-import {IConfigLoader} from './lib/zander/config/config-loader';
+import { IConfigLoader } from './lib/zander/config/config-loader';
 
-import {IBeanParser, BeanParser} from './lib/zander/config/bean-parser';
-import {IBeanRepository, BeanRepository} from './lib/zander/beans/bean-store';
+import { IBeanParser, BeanParser } from './lib/zander/config/bean-parser';
+import { IBeanRepository, BeanRepository } from './lib/zander/beans/bean-store';
 
-import {DependencyResolver} from './lib/zander/dependency/dependency-resolver';
+import { DependencyResolver } from './lib/zander/dependency/dependency-resolver';
 
 import Promise = require('bluebird');
 
@@ -38,26 +38,22 @@ export class DependencyManager implements IDependencyManager {
     }
 
     configure(): Promise<boolean> {
-        return new Promise<any>((resolve, reject) => {
-            this.configLoader.loadConfig()
-                .then((configuration: string[]) => {
-                    configuration.forEach((val: string) => {
-                        this.beanParser.parseConfig(val);
-                    });
 
-                    return Promise.resolve();
-                }).then(() => {
-                    this.dependencyResolver = new DependencyResolver(this.beanRepository, this.modulePath);
-                    return this.dependencyResolver.initializeBeanResolution();
-                })
-                .then(() => {
-                    resolve(true);
-                })
-                .catch((err) => {
-                    reject(err);
+        return this.configLoader.loadConfig()
+            .then((configuration: string[]) => {
+                configuration.forEach((val: string) => {
+                    this.beanParser.parseConfig(val);
                 });
-        });
 
+                return Promise.resolve();
+            })
+            .then(() => {
+                this.dependencyResolver = new DependencyResolver(this.beanRepository, this.modulePath);
+                return this.dependencyResolver.initializeBeanResolution();
+            })
+            .then(() => {
+                return true;
+            });
     }
 
     getBean(name: string): any {

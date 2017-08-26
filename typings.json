@@ -1,6 +1,6 @@
 {
   "name": "zander",
-  "version": false,
+  "version": "0.2.0",
   "dependencies": {},
   "global":true,
   "globalDependencies": {

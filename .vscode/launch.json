@@ -17,9 +17,11 @@
 			"env": {
 				"NODE_ENV": "development"
 			},
-			"externalConsole": false,
+			"console": "internalConsole",
 			"sourceMaps": true,
-			"outDir": "${workspaceRoot}/build"
+			"outFiles": [
+				"${workspaceRoot}/build"
+			]
 		},
 		{
 			"name": "Attach",
@@ -29,7 +31,7 @@
 			"address": "localhost",
 			"restart": false,
 			"sourceMaps": false,
-			"outDir": null,
+			"outFiles": [],
 			"localRoot": "${workspaceRoot}",
 			"remoteRoot": null
 		},
@@ -49,9 +51,11 @@
 			"env": {
 				"NODE_ENV": "development"
 			},
-			"externalConsole": false,
+			"console": "internalConsole",
 			"sourceMaps": true,
-			"outDir": "${workspaceRoot}/build"
+			"outFiles": [
+				"${workspaceRoot}/build"
+			]
 		},
 		{
 			"name": "Launch Split Definition",
@@ -69,9 +73,11 @@
 			"env": {
 				"NODE_ENV": "development"
 			},
-			"externalConsole": false,
+			"console": "internalConsole",
 			"sourceMaps": true,
-			"outDir": "${workspaceRoot}/build"
+			"outFiles": [
+				"${workspaceRoot}/build"
+			]
 		},
 		{
 			"name": "Launch Multi module bean",
@@ -89,9 +95,11 @@
 			"env": {
 				"NODE_ENV": "development"
 			},
-			"externalConsole": false,
+			"console": "internalConsole",
 			"sourceMaps": true,
-			"outDir": "${workspaceRoot}/build"
+			"outFiles": [
+				"${workspaceRoot}/build"
+			]
 		}
 	]
 }

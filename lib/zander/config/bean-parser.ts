@@ -23,20 +23,14 @@ export class BeanParser implements IBeanParser {
         var model: BeanModel = new BeanModel(key);
         this.beanRepository.addBean(model);
 
-        if (config.path) {
-            model.path = config.path;
-        }
+        config.path && (model.path = config.path);
+        
+        config.scope && (model.scope = config.scope);
 
+        config.initialize && (model.initialize = config.initialize);
+        
         if (config.construct) {
             model.constructorDependencies = this.findBeanReferences(config.construct);
-        }
-
-        if (config.scope) {
-            model.scope = config.scope;
-        }
-
-        if (config.initialize) {
-            model.initialize = config.initialize;
         }
 
         if (config.props) {
@@ -53,11 +47,7 @@ export class BeanParser implements IBeanParser {
     private findBeanReferences(beanNames: string[]): BeanModel[] {
         var beanReferences: BeanModel[] = [];
         beanNames.forEach((val: string) => {
-            var ref: BeanModel = this.beanRepository.getBean(val);
-            if (!ref) {
-                ref = new BeanModel(val);
-                this.beanRepository.addBean(ref);
-            }
+            var ref: BeanModel = this.findBeanReference(val);
             beanReferences.push(ref);
         });
         return beanReferences;

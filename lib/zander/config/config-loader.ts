@@ -21,7 +21,7 @@ export class SimpleFilePathMatchLoader implements IConfigLoader {
                     configuration.push(data);
                 })
             });
-            promise.then(function () {
+            promise && promise.then(function () {
                 resolve(configuration);
             })
                 .catch(function (err) {
@@ -51,9 +51,9 @@ export class WildcardFilePathConfigLoader implements IConfigLoader {
         return new Promise<string[]>((resolve, reject) => {
             this.resolvePaths()
                 .then((files) => {
-                    
+
                     var configuration: string[] = new Array<string>();
-                    
+
                     var promise: Promise<any>;
                     files.forEach((val: string) => {
                         var configFilePath = path.join(process.cwd(), val);
@@ -63,7 +63,7 @@ export class WildcardFilePathConfigLoader implements IConfigLoader {
                         })
                     });
 
-                    promise
+                    promise && promise
                         .then(function () {
                             resolve(configuration);
                         })
