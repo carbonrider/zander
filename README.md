@@ -1,5 +1,11 @@
 # Zander
 
+
+[![version npm](https://img.shields.io/npm/v/zander.svg?style=flat-square)](https://www.npmjs.com/package/zander)
+[![dependencies](https://img.shields.io/david/carbonrider/zander.svg?style=flat-square)](https://david-dm.org/carbonrider/zander)
+[![devDependency Status](https://david-dm.org/carbonrider/zander/dev-status.svg)](https://david-dm.org/carbonrider/zander#info=devDependencies)
+[![Build Status](https://travis-ci.org/carbonrider/zander.svg?branch=master)](https://travis-ci.org/carbonrider/zander)
+
 A configurable dependency injection for Node.JS without a need to patch `require` or manually injecting references.
 Simple, easy to get started and bundled with examples to bootstrap your project.
 
