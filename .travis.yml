@@ -3,5 +3,5 @@ node_js:
   - "lts/*"
   - "7"
 before_script:
-  - npm install -g gulp_cli
+  - npm install -g gulp-cli
 script: gulp test
