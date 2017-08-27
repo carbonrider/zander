@@ -4,13 +4,13 @@ var sourcemaps = require('gulp-sourcemaps');
 var path = require('path');
 var fs = require('fs');
 var del = require('del');
-
 var runSequence = require('run-sequence');
+var jasmine = require('gulp-jasmine');
 
 var tsProject = ts.createProject('tsconfig.json');
 
 
-gulp.task('clean', function(){
+gulp.task('clean', function () {
   return del(['build/**']);
 });
 
@@ -30,10 +30,19 @@ gulp.task('transpile', function () {
     .pipe(gulp.dest('./build'));
 });
 
+gulp.task('jasmine-test', function () {
+  gulp.src(['build/tests/*Spec.js', '!build/tests/*Spec.js.map'])
+    .pipe(jasmine());
+});
+
 gulp.task('watch', function () {
   gulp.watch(['app.ts', '**/*.ts', '!node_modules', '!typings'], ['transpile']);
 });
 
-gulp.task('default', function(){
+gulp.task('default', function () {
   runSequence('clean', 'transpile', 'watch');
 });
+
+gulp.task('test', function(){
+  runSequence('clean', 'transpile', 'jasmine-test');
+})
