@@ -1,4 +1,4 @@
-import {IContactRepository} from './repo';
+import { IContactRepository } from './repo';
 
 export interface IContact {
     getStorageType(): string;
@@ -6,10 +6,10 @@ export interface IContact {
 
 class Contact implements IContact {
     constructor(private repo: IContactRepository) {
-        console.log('Cloud storage contact service is available.');
     }
 
     getStorageType(): string {
+        console.log('Cloud storage contact service is available.');
         return this.repo.getStorageType();
     }
 

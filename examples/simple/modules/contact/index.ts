@@ -4,10 +4,10 @@ export interface IContact {
 
 class Contact implements IContact {
     constructor() {
-        console.log('Cloud storage contact service is available.');
     }
 
     getStorageType(): string {
+        console.log('Cloud storage contact service is available.');
         return "Cloud";
     }
 

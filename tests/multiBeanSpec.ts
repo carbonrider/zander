@@ -8,8 +8,8 @@ describe("Simple dependency test", () => {
     var depManager: IDependencyManager
 
     beforeEach((done) => {
-        var configLoader = new SimpleFilePathMatchLoader(["examples/simple/modules/module.json"]);
-        var modulePath = path.join(__dirname, '..', 'examples', 'simple', 'modules');
+        var configLoader = new SimpleFilePathMatchLoader(["examples/module-multi-bean/modules/module.json"]);
+        var modulePath = path.join(__dirname, '..', 'examples', 'module-multi-bean', 'modules');
         depManager = DependencyInjection({ configLoader: configLoader, modulePath: modulePath });
         depManager.configure()
             .then(() => {
@@ -27,7 +27,7 @@ describe("Simple dependency test", () => {
         expect(contactBean).toBeDefined();
     });
 
-    it("place customer order", ()=>{
+    it("place customer order", () => {
         var customerBean = depManager.getBean("customer");
         expect(customerBean.placeOrder()).toBeTruthy();
     });

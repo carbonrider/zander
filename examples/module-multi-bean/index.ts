@@ -2,7 +2,7 @@ import * as zander from "../..";
 
 import path = require('path');
 
-import {ICustomer} from './modules/customer/interfaces';
+import {ICustomer} from './modules/customer';
 
 var configLoader: zander.SimpleFilePathMatchLoader = new zander.SimpleFilePathMatchLoader(["examples/module-multi-bean/modules/module.json"]);
 var depManager: zander.IDependencyManager = zander.DependencyInjection({ configLoader: configLoader, modulePath: path.join(__dirname, 'modules') });

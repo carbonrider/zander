@@ -2,7 +2,7 @@ import {IDependencyManager} from '../../';
 
 import path = require('path');
 
-import {ICustomer} from './modules/customer/interfaces';
+import {ICustomer} from './modules/customer';
 
 import * as zander from "../..";
 

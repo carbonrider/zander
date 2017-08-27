@@ -3,7 +3,7 @@ import * as zander from "../..";
 
 import path = require('path');
 
-import {ICustomer} from './modules/customer/interfaces';
+import { ICustomer } from './modules/customer/interfaces';
 
 var configLoader: zander.WildcardFilePathConfigLoader = new zander.WildcardFilePathConfigLoader(
     ["examples/simple/modules/*.json"

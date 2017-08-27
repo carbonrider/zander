@@ -2,15 +2,20 @@ import Promise = require('bluebird');
 
 export interface IOrder {
     getOrderType(): string;
+    placeOrder(): boolean;
 }
 
 class Order implements IOrder {
     constructor() {
-        console.log('Order service has been constructed.');
     }
 
     getOrderType(): string {
+        console.log('Order service has been constructed.');
         return "Fast";
+    }
+
+    placeOrder(): boolean {
+        return true;
     }
 
 }
