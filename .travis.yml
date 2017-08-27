@@ -4,4 +4,6 @@ node_js:
   - "7"
 before_script:
   - npm install -g gulp-cli
+  - npm install -g typings
+  - typings install
 script: gulp test
