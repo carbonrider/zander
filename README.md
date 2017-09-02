@@ -9,6 +9,12 @@
 A configurable dependency injection for Node.JS without a need to patch `require` or manually injecting references.
 Simple, easy to get started and bundled with examples to bootstrap your project.
 
+Zander is 
+1. An unopinionated library.
+2. It just does one simple thing - Dependency Injection.
+3. Developers have freedom to define component directory structure of their choice.
+4. Use with any server side framework of your choice. Be it ExpressJS, Swagger etc. everything just works fine.
+
 ## Usage
 Install zander using your favorite package manager : npm
 
@@ -225,3 +231,80 @@ Hello John
 ```
 
 Sounds Simple! No messy references in the logical code, no additional coding required to manage dependencies, no need to patch `require`.
+
+# ExpressJS
+Bonus section - gist of how zander can be plugged inside ExpressJS application.
+
+Replace static reference of your routes with beans initialized from Zander. Hence instead of
+
+```javascript
+var index = require('./routes/index');
+...
+app.use('/', index);
+```
+replace the code with
+
+```javascript
+var zander = require('zander');
+var path = require('path');
+var configLoader = new zander.SimpleFilePathMatchLoader(["routes/module.json"]);
+var depManager = zander.DependencyInjection({ configLoader: configLoader, modulePath: path.join(__dirname, 'routes') });
+
+depManager.configure()
+  .then(() => {
+    console.log("All beans are created.");
+    var indexBean = depManager.getBean("index");
+    app.use("/", indexBean.getRouter());
+    app.use('/users', users);
+    ...
+  });
+````
+
+And router definition should be changed from
+
+```javascript
+var express = require('express');
+var router = express.Router();
+
+router.get('/', function(req, res, next) {
+  res.render('index', { title: 'Express' });
+});
+
+module.exports = router;
+```
+
+to
+
+```javascript
+"use strict";
+
+var express = require('express');
+
+var indexRouter = (function () {
+
+  function indexRouter(/*You can declare dependencies here.*/) {
+    indexRouter.prototype.router = express.Router();
+    this.router.get('/', function (req, res, next) {
+      res.render('index', { title: 'Express' });
+    });
+  }
+
+  indexRouter.prototype.getRouter = function () {
+    return this.router;
+  };
+
+  return indexRouter;
+})();
+
+module.exports = indexRouter;
+```
+
+While module definition file will look like below
+
+```javascript
+{
+    "index":{
+        "construct":[]
+    }
+}
+```
